@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 3.5)
+
+# project setting
+set(project cpprocessing)
+project(${project})
+
+# build options
+set(CMAKE_BUILD_TYPE debug)
+set(CMAKE_CXX_STANDARD 17)
+
+# source files
+include_directories(/usr/local/include)
+include_directories(.)
+set(SOURCE_FILES  ${SOURCE_FILES} src/*.cpp)
+file(GLOB_RECURSE SOURCE_FILES ${SOURCE_FILES})
+
+# libraries
+link_directories(/usr/local/lib)
+set(LIBRARIES ${LIBRARIES} glfw3)
+set(LIBRARIES ${LIBRARIES} Xrandr)
+set(LIBRARIES ${LIBRARIES} Xrender)
+set(LIBRARIES ${LIBRARIES} Xi)
+set(LIBRARIES ${LIBRARIES} GL)
+set(LIBRARIES ${LIBRARIES} m)
+set(LIBRARIES ${LIBRARIES} dl)
+set(LIBRARIES ${LIBRARIES} drm)
+set(LIBRARIES ${LIBRARIES} Xdamage)
+set(LIBRARIES ${LIBRARIES} X11-xcb)
+set(LIBRARIES ${LIBRARIES} xcb-glx)
+set(LIBRARIES ${LIBRARIES} xcb-dri2)
+set(LIBRARIES ${LIBRARIES} xcb-dri3)
+set(LIBRARIES ${LIBRARIES} xcb-present)
+set(LIBRARIES ${LIBRARIES} xcb-sync)
+set(LIBRARIES ${LIBRARIES} xshmfence)
+set(LIBRARIES ${LIBRARIES} Xfixes)
+set(LIBRARIES ${LIBRARIES} Xext)
+set(LIBRARIES ${LIBRARIES} X11)
+set(LIBRARIES ${LIBRARIES} pthread)
+set(LIBRARIES ${LIBRARIES} xcb)
+set(LIBRARIES ${LIBRARIES} Xau)
+set(LIBRARIES ${LIBRARIES} Xdmcp)
+
+add_library(${project} SHARED ${SOURCE_FILES})
+target_link_libraries(${project} ${LIBRARIES})
