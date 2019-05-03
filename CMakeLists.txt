@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
 
-add_subdirectory(lib)
 
 # project setting
 set(project test)
@@ -17,6 +16,8 @@ set(SOURCE_FILES  ${SOURCE_FILES} src/*.cpp)
 file(GLOB_RECURSE SOURCE_FILES ${SOURCE_FILES})
 
 # libraries
+add_subdirectory(lib)
+link_directories(/usr/local/lib)
 set(LIBRARIES ${LIBRARIES} cpprocessing)
 
 add_executable(${project} ${SOURCE_FILES})

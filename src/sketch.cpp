@@ -9,7 +9,7 @@ using cp::data::Vector;
 namespace {
 FlowField* flowfield;
 std::vector<Particle*> particles;
-}
+}  // namespace
 
 void setup() {
   cp::size(600, 400);
